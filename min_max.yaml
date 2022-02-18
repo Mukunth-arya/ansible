@@ -1,0 +1,32 @@
+---
+- name: here we wxecute the variables
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the file
+      debug:
+        msg: >
+             {{ [1,2,3,4,5] | min }}
+    - name: second 
+      debug:
+        msg: >
+             {{ [1,2,3,4,5] | max }}
+    - name: third
+      debug:
+        msg: >
+             {{ [1,1,2,2,3,3,4,4] | unique }}
+    - name: split
+      debug:
+        msg: >
+             {{ "https://google.com/gmail.html" | urlsplit("hostname") }}
+    - name: random
+      debug:
+        msg: >
+             {{ ["kumar","somu","deva"] | random }}
+    - name: differnece
+      debug:
+        msg: >
+             {{ [1,2,3,4] | difference([1,2,3]]) }}
+
+...
+            

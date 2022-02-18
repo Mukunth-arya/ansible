@@ -1,0 +1,26 @@
+---
+- name: here we execute the file
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we make the directory
+      file:
+        path: /root/facts.d
+        recurse: yes
+        state: directory
+    - name: here we copy the content
+      copy:
+        src: facts.d/getdata.fact
+        dest: /root/facts.d
+        mode: 0777
+    - name: here we setup fact path 
+      setup:
+        fact_path: /root/facts.d 
+        
+    - name: here we get ip address
+      debug:
+        msg: "{{ ansible_default_ipv4.address }}"
+    - name: here we get custom fact data
+      debug:
+        msg: "{{ ansble_local.getdata.date }}"
+...

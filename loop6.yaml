@@ -1,0 +1,14 @@
+---
+- name: here comes the value
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here comes the user
+      user:
+        name: "{{ item.key }}"
+        comment: "{{ item.value.full_name }}"
+        state: absent
+      with_dict:
+        john:
+          full_name: john doe
+...  

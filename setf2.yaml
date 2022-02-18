@@ -1,0 +1,16 @@
+---
+- name: here comes the variable
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here comes the first block
+      set_fact: 
+        first: here come sthe variable
+        second: "{{ ansible_os_family | upper }}"
+    - name: here comes the next varaible
+      debug:
+        msg: "{{ first }}"
+    - name: here comes the second varaiable
+      debug:
+        msg: "{{ second }}"
+...

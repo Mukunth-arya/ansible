@@ -1,0 +1,12 @@
+---
+- name: here comes the play
+  hosts: dataserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the play
+      command: ls -l
+      register: myvalues
+    - name: here we execute the play
+      debug:
+        var: myvalues
+...

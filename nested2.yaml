@@ -1,0 +1,24 @@
+---
+- name: here we write the script
+  hosts: myserver
+  gather_facts: true
+  vars:
+    my_users:
+      - name: somu
+        Personal_file:
+          - "data"
+          - "fields"
+          - "datavalue"
+    common_thing:
+      - ssh
+      - value         
+  tasks:
+    - name: here comes the data execution
+      file:
+        dest: "/home/{{item.0.name}}/{{item.1}}"
+        state: directory
+      with_nested:
+        - "{{ my_users }}"
+        - "{{ common_thing }}"
+ 
+...

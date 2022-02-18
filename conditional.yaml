@@ -1,0 +1,21 @@
+---
+- name: here we are going to execute the play
+  hosts: myserver
+  gather_facts: true
+  vars:
+    key_files:
+      - clour
+      - white
+  tasks:
+    - name: here we are going to execute the statement
+      debug:
+        msg: >
+         
+             {% if ansible_hostname == "mukunth1" %}
+                  this is the sample variable key to 
+             {% endif %}
+    - name: here comes the sample example
+      debug:
+        msg: "{{vars.key_files}}"
+...
+         

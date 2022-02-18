@@ -1,0 +1,16 @@
+---
+- name: Here comes the file
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: Here we get ip adddress
+      debug:
+        msg: >
+             -----------======GET_IP_ADDRESS=====--------    
+             {% for values in ansible_mounts %}
+                     Here comes the List of ipaddress {{ values }}
+             {% endfor %}
+            
+...              
+         
+ 

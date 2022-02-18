@@ -1,0 +1,20 @@
+---
+- name: her comes the file
+  hosts: myserver
+  gather_facts: false
+  vars:
+    myserver:
+      - name: somu
+        facts_variable:
+          - data
+          - facts
+    
+  tasks:
+    - name: here comes the data fields
+      file:
+        dest: "/home/{{item.0.name}}/{{item.1}}"
+        state: directory
+      with_subelements:
+        - "{{ myserver }}"
+        - facts_variable
+...

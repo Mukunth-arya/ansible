@@ -1,0 +1,17 @@
+---
+- name: here we intialize the dictonary variable
+  hosts: myserver
+  gather_facts: false
+  vars:
+    dict:
+      dict_key: here comes the variable
+  tasks:
+    - name: first
+      debug:
+        msg: "{{ dict }}"
+    - name: second
+      debug:
+        msg: "{{dict.dict_key}}"
+    - name: third
+      debug: "{{dict['dict_key']}}"
+...

@@ -1,0 +1,27 @@
+---
+- name: here comes the play
+  hosts: all
+  gather_facts: false
+  serial: 1
+  vars:
+    data: []
+  tasks:
+    - name: here we create the file
+      file:
+        path: /home/data.log
+        state: touch
+      delegate_to: localhost
+      notify: hey
+    - name: here we write inside the file
+      lineinfile:
+        path: /home/data.log
+        line: "Hey there buddy!!!!"
+        state: present
+      delegate_to: localhost
+  handlers:
+    - name: hey
+      debug:
+        msg: "File is created"
+...  
+  
+

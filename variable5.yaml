@@ -1,0 +1,17 @@
+---
+- name: play
+  hosts: myserver
+  vars:
+    inline_list:
+      [ green, black, white ]
+  tasks:
+    - name: first
+      debug:
+        msg: "{{ inline_list }}"
+    - name: second
+      debug:
+        msg: "{{ inline_list.1 }}"
+    - name: Third
+      debug:
+        msg: "{{ inline_list[1] }}"
+... 

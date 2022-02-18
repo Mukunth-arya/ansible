@@ -1,0 +1,14 @@
+---
+- name: here comes the values
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the value
+      debug:
+        msg: > 
+             -----=====here we execute the file====------
+             {% for value in range(0,10) %}
+                   Here comes the file
+             {% endfor %}
+...
+ 

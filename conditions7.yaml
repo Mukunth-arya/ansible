@@ -1,0 +1,13 @@
+---
+- name: here we execute the file
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the file
+      debug:
+        msg: >
+             {% for values in range(10,20) %}
+                 {% if values == 15 %}
+                     {{ values}}
+                 {% endif %}
+            {% endfor %} 

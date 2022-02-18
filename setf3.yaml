@@ -1,0 +1,15 @@
+---
+- name: here comes the server
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here comes the setfacts 
+      set_fact:
+        webserver_application_port: 80
+        webserver_application_path: /var/www/html
+        webserver_application_user: root
+      when: ansible_hostname == "mukunth1"
+    - name:
+      debug:
+        msg: "{{webserver_application_port}}"
+...  

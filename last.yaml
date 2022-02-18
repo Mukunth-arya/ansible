@@ -1,0 +1,22 @@
+---
+- name: here comes the play
+  hosts: all
+  gather_facts: false
+  serial: 1
+  vars:
+    data: []
+  tasks:
+    - name: here we display keyvalue pairs
+      local_action: command ls
+      register: value
+    - name: here we dsplay the file
+      debug:
+        var: value
+      delegate_to: master
+    - name: here we add hosts
+      add_host:
+        name: master
+        ansible_host: 192.168.43.150
+        ansible_user: root
+        
+...

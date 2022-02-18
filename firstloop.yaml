@@ -1,0 +1,16 @@
+---
+- name: here comes the first looping area
+  hosts: myserver
+  gather_facts: true
+  vars:
+    datatype:
+      - httpd
+  tasks:
+    - name: here comes the first block
+      service: 
+        name: "{{ item }}" 
+        state: started
+      with_items: 
+        "{{ datatype }}"
+
+... 

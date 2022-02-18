@@ -1,0 +1,16 @@
+---
+- name: here comes the variable
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we represent the file
+      debug:
+        msg: >
+             --======Ansible_File====---
+             {% set file_fact = "defined" %}
+             {% if file_fact is defined %}
+                  file_fact is defined
+             {% else %}
+                  file_fact is not defined
+             {% endif %}
+...

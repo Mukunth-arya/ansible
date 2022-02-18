@@ -1,0 +1,36 @@
+---
+- name: here_we_execute_the_play_for_the_data
+  hosts: dataserver
+  gather_facts: true
+  vars:
+    data: []
+
+  tasks:
+    - name: here we execute the play
+      yum:
+        name: httpd
+        state: present
+      async: 20
+      poll: 1
+      register: datastored
+    - name: here we capture the job_id
+      set_fact:
+        data: >
+              {% if item.ansible_job_id is defined %}
+                 {{ data + [item.ansible_job_id] }}
+              {% else %}
+                 {{ data }}
+              {% endif %}
+      with_items: "{{ [ datastored ] }}"
+     
+    - name:  here we display the job id
+      debug:
+        var: data
+    - name: here comes to try multiple times
+      async_status:
+        nid: "{{ item }}"
+      with_items: "{{ data }}"
+      register: result
+      until: result.finished
+      retries: 40
+... 

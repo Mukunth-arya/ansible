@@ -1,0 +1,13 @@
+---
+- name: Here we execute the play for the operation
+  hosts: myserver
+  tasks:
+    - name: here we create the group
+      group: name=my state=present
+    - name: here we create teh user
+      user: name=arya group=my
+    - name: copy the bash script
+      copy: src=/home/file dest=/home/
+    - name: execute the bash script
+      command: sh /home/file.sh
+...

@@ -1,0 +1,7 @@
+---
+
+external_example_key: my value
+
+external_inline_list:
+  [ bind* , xrdp ]
+...

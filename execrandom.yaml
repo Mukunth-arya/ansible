@@ -1,0 +1,15 @@
+---
+- name: here comes the play
+  hosts: all
+  gather_facts: false
+  vars:
+    data: [] 
+  tasks:
+    - name: here comes the tasks
+      command: ls -l
+      register: data
+      delegate_to: localhost
+    - name: here we diaplsy the message
+      debug:
+        var: data
+...

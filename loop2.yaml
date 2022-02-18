@@ -1,0 +1,14 @@
+---
+- name: here comes the varibale
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we create the users  inside this
+      user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.group }}"
+      with_items:
+        - { name: 'kumar',group: 'root' }
+        - { name: 'arya',group: 'root' }
+...

@@ -1,0 +1,14 @@
+---
+- name: here comes the varaiable
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here comes the variable data
+      debug:
+        msg: "here come the  {{ item[1] }} "
+      with_indexed_items:
+        - "hey"
+        - "dude"
+        - "myfriend"
+        - "dude vicky"
+...

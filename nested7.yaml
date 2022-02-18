@@ -1,0 +1,34 @@
+---
+- name: here comes the value
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: herewe create the data
+      user:
+        name : "{{ item.1 }}"
+        comment: "{{ item.0.orginame }}"
+        state: present
+      with_subelements:
+        - value:
+            orginame: dannyselvaraj
+            datafields:
+              - kumarsamy
+              - kumardanny
+        - datafields
+    - name: here we craete he directory
+      file:
+        dest: "/home/{{ item.0 }}/{{ item.1 }}"
+        state: directory
+      with_together:
+        - [ kumarsamy, kumardanny ]
+        - [ pop, hiphop ]
+    - name: here we create the ict values
+      file:
+        dest: "/home/{{ item.key }}/{{ item.value.folder }}"
+        state: directory
+      with_dict:
+        kumarsamy:
+          folder: datavalue
+...
+                  
+          

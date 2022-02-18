@@ -1,0 +1,11 @@
+---
+- name: here comes the play
+  hosts: myserver
+  gather_facts: false
+  vars_prompt:
+    - name: username
+  tasks:
+    - name: here we execute the play
+      debug:
+        msg: "{{ username }}"
+...

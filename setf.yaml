@@ -1,0 +1,13 @@
+---
+- name: here comes the file which executes the variable
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: This block execute the block of variable
+      set_fact: 
+        our_facts: Here comes the dude....!
+    - name: here comesthe next block
+      debug:
+        msg: "{{ our_facts }}"
+...
+         

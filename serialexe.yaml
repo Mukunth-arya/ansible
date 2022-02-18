@@ -1,0 +1,16 @@
+---
+- name: here comes the serial execution
+  hosts: dataserver
+  gather_facts: true
+  serial: 1
+  vars:
+    data: []
+
+  tasks:
+    - name: here we execute the tasks to be performed
+      command: ls
+      register: data
+    - name: here comes the display thing
+      debug:
+        var: data
+...

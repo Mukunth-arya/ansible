@@ -1,0 +1,9 @@
+---
+- name: here comes the play
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here comes the play
+      wait_for:
+        port: 80
+...

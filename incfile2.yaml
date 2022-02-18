@@ -1,0 +1,15 @@
+---
+- name: Here comes the main source
+  hosts: myserver
+  tasks:
+    - name: Here we deploy the service
+      include: myfile.yaml
+      vars:
+        package: samba
+        service: smb
+        state: started
+      register: output 
+    - name: here we debug the output
+      debug:
+        msg: output
+...

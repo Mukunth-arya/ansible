@@ -1,0 +1,17 @@
+---
+- name: here comes the datakeyvalue
+  hosts: myserver
+  gather_facts: false
+  tasks:
+    - name: here come sthe variable
+      user:
+        name: "{{item.1}}"
+        state: present
+        comment: "{{ item.0.surname }}"  
+      with_subelements:
+        - family:
+            surname: arya
+            members:
+              - danny
+        - members
+...   

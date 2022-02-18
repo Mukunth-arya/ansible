@@ -1,0 +1,13 @@
+---
+- name: here comes the play
+  hosts: dataserver
+  gather_facts: true
+  tasks:
+    - name: here comes the play
+      command: ls -l
+      when: ansible_os_family == "RedHat"
+      register: facts
+    - name: debug the area
+      debug:
+        var: facts
+...

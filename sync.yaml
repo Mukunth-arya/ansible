@@ -1,0 +1,11 @@
+---
+- name: here comes the play
+  hosts: dataserver
+  gather_facts: true
+  tasks:
+    - name: here we install docker file
+      yum:
+        name: httpd
+        state: present
+      
+...

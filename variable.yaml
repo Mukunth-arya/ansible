@@ -1,0 +1,10 @@
+---
+- name: here we get the variable
+  hosts: myserver
+  vars: 
+    file: here we going to get the access
+  tasks:
+    - name: here we execute the variable
+      debug:
+        msg: "{{file}}"
+...

@@ -1,0 +1,20 @@
+---
+- name: here we execute the list function
+  hosts: myserver
+  gather_facts: false
+  vars:
+    inline_dict:
+      {inline_dict_var: this is the variable}
+  tasks:
+    - name: first
+      debug:
+        msg: "{{ inline_dict }}"
+    - name: second
+      debug:
+        msg: "{{ inline_dict.inline_dict_var }}"
+    - name: third
+      debug:
+        msg: "{{inline_dict['inline_dict_var']}}"
+...
+
+  

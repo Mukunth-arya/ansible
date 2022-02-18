@@ -1,0 +1,16 @@
+---
+- name: here comes the conditional statements
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the variable
+      debug:
+        msg: >
+             {% if ansible_hostname == "mukunth1" %}
+                 here we execute the varaibale
+             {% elif ansible_hostname != "mukunth1" %}
+                   sorry this not correct thing
+             {% else %}
+                 sorry dude:)
+             {% endif %}
+...

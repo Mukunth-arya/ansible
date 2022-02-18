@@ -1,0 +1,11 @@
+---
+- name: Here comes the play
+  hosts: myserver
+  gather_facts: false
+  vars_files:
+    - variable6.yaml
+  tasks:
+    - name: first
+      yum: name = "{{ external_inline_list }}" state = present
+     
+...

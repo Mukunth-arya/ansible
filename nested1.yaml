@@ -1,0 +1,13 @@
+---
+- name: here comes the value
+  hosts: myserver
+  gather_facts: true
+  tasks:
+    - name: here we create the group
+      user:
+        name: "{{ item[0] }}"
+        state: absent
+      with_nested:
+        - ["kumar", "somu"]
+        - ["arya", "divakar", "pavithra"]
+...

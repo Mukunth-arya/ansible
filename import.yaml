@@ -1,0 +1,12 @@
+---
+- name: here comes the file
+  hosts: myserver
+  gather_facts: false
+  tasks:
+    - name: Here we include
+      include_vars: pack.yaml
+    - name: here we execute the file
+      yum:
+        name: "{{ packages.myfile }}"
+        state: latest
+...

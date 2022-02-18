@@ -1,0 +1,19 @@
+---
+- name: here we execute the variable
+  hosts: myserver
+  vars:
+    colour_list:
+      - green
+      - black
+      - white
+  tasks:
+    - name: here comes the variable
+      debug:
+        msg: "{{ colour_list }}"
+    - name: second
+      debug:
+        msg: "{{ colour_list.1 }}"
+    - name: third
+      debug:
+        msg: "{{ colour_list[1] }}"
+... 

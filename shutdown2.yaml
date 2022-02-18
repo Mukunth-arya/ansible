@@ -1,0 +1,8 @@
+---
+- name: shutdown
+  hosts: dataserver
+  gather_facts: true
+  tasks:
+    - name: here we execute the tasks
+      command: /sbin/shutdown -h now
+...

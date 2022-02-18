@@ -1,0 +1,10 @@
+---
+- name: here we deploy {{ package }} here
+  yum:
+    name: "{{ package }}"
+    state: latest
+- name: here we deploy {{ service }} here 
+  service:
+    name: "{{ service }}"
+    state: "{{ state }}"  
+...

@@ -1,0 +1,25 @@
+---
+- name: here comes the whole play for variable
+  hosts: myserver 
+  gather_facts: true
+  tasks:
+    - name: here comes the first block
+      user:
+        name : "{{ item.key }}"
+        comment: "{{ item.value.fullname }}"
+        groups: root
+        append: yes
+        state: present
+      with_dict:
+        mukuntharya96:
+          fullname: mukuntharya
+    - name: here comes the play we could execute the sequence of things inyo them
+      file:
+        dest: "/home/mukuntharya96/{{ item }}"
+        state: directory
+      with_random_choice:
+        - arya
+        - somu
+        - data 
+        
+...
